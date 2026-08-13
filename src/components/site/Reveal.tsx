@@ -1,5 +1,5 @@
-import { motion } from "motion/react";
-import type { ReactNode } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
+import { useRef, type ReactNode } from "react";
 
 export function Reveal({
   children,
@@ -12,14 +12,18 @@ export function Reveal({
   className?: string;
   y?: number;
 }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 0.96", "start 0.5"],
+  });
+
+  const d = Math.min(Math.max(delay, 0), 0.4) * 0.6;
+  const opacity = useTransform(scrollYProgress, [d, d + 0.55], [0, 1]);
+  const translateY = useTransform(scrollYProgress, [d, d + 0.55], [y, 0]);
+
   return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.25 }}
-      transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
-    >
+    <motion.div ref={ref} className={className} style={{ opacity, y: translateY }}>
       {children}
     </motion.div>
   );
