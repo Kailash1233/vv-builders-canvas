@@ -78,15 +78,17 @@ export function Services() {
       </Reveal>
 
       <Reveal delay={0.2}>
-        <div className="mt-10 flex gap-3 overflow-x-auto pb-2 md:justify-center md:overflow-visible md:pb-0">
-          {tabs.map((t) => (
+        <div className="mt-10 flex w-full overflow-x-auto">
+          {tabs.map((t, i) => (
             <button
               key={t.id}
               onClick={() => setActive(t.id)}
-              className={`shrink-0 rounded-full border px-5 py-2.5 text-sm transition-colors ${
+              className={`flex-1 shrink-0 whitespace-nowrap px-5 py-3.5 text-sm transition-colors ${
+                i > 0 ? "border-l border-foreground/15" : ""
+              } ${
                 active === t.id
-                  ? "border-accent bg-accent text-accent-foreground"
-                  : "border-foreground/15 bg-card text-foreground/70 hover:border-foreground/40"
+                  ? "bg-accent text-accent-foreground"
+                  : "bg-card text-foreground hover:bg-foreground/5"
               }`}
             >
               {t.label}
@@ -95,7 +97,7 @@ export function Services() {
         </div>
       </Reveal>
 
-      <div className="mt-12">
+      <div className="w-full border border-foreground/15 bg-card p-6 md:p-10">
         <AnimatePresence mode="wait">
           <motion.div
             key={current.id}
@@ -127,6 +129,7 @@ export function Services() {
           </motion.div>
         </AnimatePresence>
       </div>
+
     </section>
   );
 }
