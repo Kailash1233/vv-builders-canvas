@@ -23,7 +23,7 @@ export function Nav() {
       }`}
     >
       <nav className="grid grid-cols-1 items-center px-5 py-5 md:grid-cols-[45fr_55fr] md:px-0">
-        <div className="flex items-center gap-8 md:px-10">
+        <div className="flex items-center justify-end gap-8 md:px-10">
           {links.map((l) => (
             <a
               key={l.href}
