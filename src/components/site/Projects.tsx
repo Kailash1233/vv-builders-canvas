@@ -60,13 +60,13 @@ export function Projects() {
       <div className="mt-12 space-y-20 md:space-y-28">
         {projects.map((p, i) => (
           <div key={p.title}>
-            <Reveal>
+            <Reveal className="mx-auto max-w-[1400px] px-5 md:px-10">
               <div className="relative">
                 <img
                   src={p.image}
                   alt={p.alt}
                   loading="lazy"
-                  className="aspect-[16/9] w-full object-cover md:aspect-[16/5]"
+                  className="aspect-[16/9] w-full object-cover md:aspect-[16/6]"
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-foreground/60 to-transparent p-5 pt-20 md:p-10">
                   <h3 className="text-[clamp(1.75rem,4vw,3.25rem)] font-extrabold uppercase leading-none tracking-[-0.03em] text-background">
@@ -75,6 +75,7 @@ export function Projects() {
                 </div>
               </div>
             </Reveal>
+
 
             <div className="mx-auto mt-4 grid max-w-[1400px] grid-cols-1 gap-4 px-5 md:grid-cols-2 md:px-10">
               <Reveal delay={0.1}>

@@ -19,32 +19,31 @@ export function Nav() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-background/80 backdrop-blur-md border-b border-foreground/10"
-          : "bg-background border-b border-transparent"
+        scrolled ? "border-b border-foreground/10 bg-background/80 backdrop-blur-md" : "bg-transparent"
       }`}
     >
-      <nav className="mx-auto flex max-w-[1400px] items-center justify-between gap-4 px-5 py-4 md:px-10">
-        <a href="#top" className="text-lg font-extrabold tracking-tight text-foreground">
-          VV Builders
-        </a>
-        <div className="hidden items-center gap-8 md:flex">
+      <nav className="grid grid-cols-1 items-center px-5 py-5 md:grid-cols-[45fr_55fr] md:px-0">
+        <div className="flex items-center justify-end gap-8 md:px-10">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="text-sm text-foreground/70 transition-colors hover:text-accent"
+              className="hidden text-sm text-foreground/70 transition-colors hover:text-accent md:inline"
             >
               {l.label}
             </a>
           ))}
         </div>
-        <a
-          href="#contact"
-          className="rounded-full border border-foreground px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-foreground transition-colors hover:bg-foreground hover:text-background"
-        >
-          Contact
-        </a>
+        <div className="flex justify-end md:px-10">
+          <a
+            href="#contact"
+            className={`text-sm font-semibold uppercase tracking-[0.14em] transition-colors hover:text-accent ${
+              scrolled ? "text-foreground" : "text-white md:text-white"
+            }`}
+          >
+            Contact
+          </a>
+        </div>
       </nav>
     </header>
   );
