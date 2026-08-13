@@ -37,7 +37,6 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <main>
-      <SmoothScroll />
       <Nav />
       <Hero />
 
