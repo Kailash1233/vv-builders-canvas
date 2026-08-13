@@ -1,24 +1,54 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Toaster } from "@/components/ui/sonner";
+import { Nav } from "@/components/site/Nav";
+import { Hero } from "@/components/site/Hero";
+import { About } from "@/components/site/About";
+import { Marquee } from "@/components/site/Marquee";
+import { Services } from "@/components/site/Services";
+import { Projects } from "@/components/site/Projects";
+import { Process } from "@/components/site/Process";
+import { Testimonials } from "@/components/site/Testimonials";
+import { Statement } from "@/components/site/Statement";
+import { Faq } from "@/components/site/Faq";
+import { Contact } from "@/components/site/Contact";
+import { Footer } from "@/components/site/Footer";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "VV Builders — Construction & Home Renovation in London" },
+      {
+        name: "description",
+        content:
+          "VV Builders designs and builds kitchens, bathrooms, loft conversions and extensions across North and West London. Fixed programmes, one project lead, immaculate detailing.",
+      },
+      { property: "og:title", content: "VV Builders — Built to Last, Designed to Impress" },
+      {
+        property: "og:description",
+        content:
+          "Boutique construction and renovation studio crafting kitchens, lofts and extensions across London.",
+      },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main>
+      <Nav />
+      <Hero />
+      <About />
+      <Marquee />
+      <Services />
+      <Projects />
+      <Process />
+      <Testimonials />
+      <Statement />
+      <Faq />
+      <Contact />
+      <Footer />
+      <Toaster />
+    </main>
   );
 }
