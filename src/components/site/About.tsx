@@ -45,7 +45,11 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
 
 export function About() {
   return (
-    <section id="about" className="mx-auto mt-24 max-w-[1400px] px-5 md:mt-32 md:px-10">
+    <section
+      id="about"
+      className="relative z-10 -mt-px bg-background px-5 pt-24 md:pt-32 md:px-10"
+    >
+      <div className="mx-auto max-w-[1400px]">
       <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16">
         <div>
           <Reveal>
@@ -99,6 +103,7 @@ export function About() {
             </div>
           </Reveal>
         ))}
+      </div>
       </div>
     </section>
   );
