@@ -47,13 +47,13 @@ const projects = [
 
 export function Projects() {
   return (
-    <section id="projects" className="mt-24 md:mt-36">
+    <section id="projects" className="mt-24 md:mt-36 [font-family:'Poppins',var(--font-display)]">
       <Reveal className="mx-auto max-w-[1400px] px-5 md:px-10">
         <Eyebrow>Our Work</Eyebrow>
       </Reveal>
       <Reveal delay={0.1} className="mx-auto max-w-[1400px] px-5 md:px-10">
-        <h2 className="mt-5 max-w-2xl text-[clamp(2rem,4vw,3.5rem)] font-extrabold uppercase leading-[1] tracking-[-0.03em]">
-          Recent projects
+        <h2 className="mt-5 mx-auto max-w-3xl text-center text-[clamp(2rem,4vw,3.25rem)] font-extrabold leading-[1.08] tracking-[-0.01em]">
+          Explore our latest work, where vision and precision come together
         </h2>
       </Reveal>
 
