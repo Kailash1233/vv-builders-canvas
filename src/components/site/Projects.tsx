@@ -47,13 +47,13 @@ const projects = [
 
 export function Projects() {
   return (
-    <section id="projects" className="mt-24 md:mt-36">
+    <section id="projects" className="mt-24 md:mt-36 [font-family:'Poppins',var(--font-display)]">
       <Reveal className="mx-auto max-w-[1400px] px-5 md:px-10">
         <Eyebrow>Our Work</Eyebrow>
       </Reveal>
       <Reveal delay={0.1} className="mx-auto max-w-[1400px] px-5 md:px-10">
-        <h2 className="mt-5 max-w-2xl text-[clamp(2rem,4vw,3.5rem)] font-extrabold uppercase leading-[1] tracking-[-0.03em]">
-          Recent projects
+        <h2 className="mt-5 mx-auto max-w-3xl text-center text-[clamp(2rem,4vw,3.25rem)] font-extrabold leading-[1.08] tracking-[-0.01em]">
+          Explore our latest work, where vision and precision come together
         </h2>
       </Reveal>
 
@@ -69,7 +69,7 @@ export function Projects() {
                   className="aspect-[16/9] w-full object-cover md:aspect-[16/6]"
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-foreground/60 to-transparent p-5 pt-20 md:p-10">
-                  <h3 className="text-[clamp(1.75rem,4vw,3.25rem)] font-extrabold uppercase leading-none tracking-[-0.03em] text-background">
+                  <h3 className="text-[clamp(1.75rem,4vw,3.25rem)] font-extrabold leading-none tracking-[-0.01em] text-background">
                     {p.title}
                   </h3>
                 </div>
@@ -82,7 +82,7 @@ export function Projects() {
                 <div
                   className={`h-full p-7 md:p-10 ${
                     p.panel === "accent"
-                      ? "bg-accent text-accent-foreground"
+                      ? "bg-[#7B2D3B] text-white"
                       : "bg-charcoal text-charcoal-foreground"
                   }`}
                 >
