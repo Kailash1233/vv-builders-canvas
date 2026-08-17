@@ -69,10 +69,11 @@ export function Services() {
   return (
     <section
       id="services"
-      className="mx-auto mt-24 max-w-[1400px] px-6 md:mt-36 md:px-12"
+      className="mt-24 md:mt-36 md:bg-[#F5F1EA] md:py-20 md:[font-family:'Poppins',var(--font-display)]"
     >
+      <div className="mx-auto max-w-[1400px] px-6 md:px-12">
       <Reveal className="text-center">
-        <span className="inline-block text-[0.7rem] font-bold uppercase tracking-[0.22em] text-accent">
+        <span className="inline-block text-[0.7rem] font-bold uppercase tracking-[0.22em] text-accent md:text-[#7B2D3B]">
           Services
         </span>
       </Reveal>
@@ -83,14 +84,14 @@ export function Services() {
       </Reveal>
 
       <Reveal delay={0.2}>
-        <div className="mt-12 flex w-full flex-col gap-3">
+        <div className="mt-12 flex w-full flex-col gap-3 md:flex-row md:gap-4">
           {tabs.map((t) => (
             <button
               key={t.id}
               onClick={() => setActive(t.id)}
-              className={`w-full rounded-xl px-6 py-5 text-center text-sm font-semibold no-underline transition-colors ${
+              className={`w-full rounded-xl px-6 py-5 text-center text-sm font-semibold no-underline transition-colors md:flex-1 md:rounded-md ${
                 active === t.id
-                  ? "bg-accent text-accent-foreground"
+                  ? "bg-accent text-accent-foreground md:bg-[#7B2D3B] md:text-white"
                   : "bg-card text-foreground hover:bg-foreground/5"
               }`}
             >
@@ -100,7 +101,7 @@ export function Services() {
         </div>
       </Reveal>
 
-      <div className="mt-6 w-full rounded-xl border border-foreground/15 bg-card p-8 md:p-12">
+      <div className="mt-6 w-full overflow-hidden rounded-xl border border-foreground/15 bg-card p-8 md:mt-4 md:rounded-md md:p-0">
         <AnimatePresence mode="wait">
           <motion.div
             key={current.id}
@@ -108,9 +109,9 @@ export function Services() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-16"
+            className="grid grid-cols-1 items-stretch gap-12 md:grid-cols-2 md:gap-0"
           >
-            <div>
+            <div className="md:flex md:flex-col md:justify-center md:p-12">
               <p className="max-w-xl text-base leading-[1.6] text-foreground/70">
                 {current.body}
               </p>
@@ -120,7 +121,7 @@ export function Services() {
                     key={b}
                     className="flex items-start gap-3 text-sm text-foreground/85"
                   >
-                    <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-accent text-accent-foreground">
+                    <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-accent text-accent-foreground md:bg-[#7B2D3B] md:text-white">
                       <ArrowUpRight size={13} />
                     </span>
                     {b}
@@ -132,10 +133,11 @@ export function Services() {
               src={current.image}
               alt={current.alt}
               loading="lazy"
-              className="h-[300px] w-full rounded-xl object-cover md:h-[460px]"
+              className="h-[300px] w-full rounded-xl object-cover md:h-full md:min-h-[460px] md:rounded-none"
             />
           </motion.div>
         </AnimatePresence>
+      </div>
       </div>
     </section>
   );
