@@ -67,25 +67,26 @@ export function Services() {
   const current = tabs.find((t) => t.id === active)!;
 
   return (
-    <section id="services" className="mx-auto mt-24 max-w-[1400px] px-5 md:mt-36 md:px-10">
+    <section
+      id="services"
+      className="mx-auto mt-24 max-w-[1400px] px-6 md:mt-36 md:px-12"
+    >
       <Reveal className="text-center">
-        <Eyebrow>Services</Eyebrow>
+        <Eyebrow className="font-bold">Services</Eyebrow>
       </Reveal>
       <Reveal delay={0.1}>
-        <h2 className="mx-auto mt-5 max-w-3xl text-center text-[clamp(2rem,4vw,3.5rem)] font-extrabold uppercase leading-[1] tracking-[-0.03em]">
+        <h2 className="mx-auto mt-6 max-w-3xl text-center text-[clamp(2rem,4vw,3.25rem)] font-extrabold leading-[1.08] tracking-[-0.01em]">
           Quality building work, shaped around your home
         </h2>
       </Reveal>
 
       <Reveal delay={0.2}>
-        <div className="mt-10 flex w-full overflow-x-auto">
-          {tabs.map((t, i) => (
+        <div className="mt-12 flex w-full flex-col gap-3">
+          {tabs.map((t) => (
             <button
               key={t.id}
               onClick={() => setActive(t.id)}
-              className={`flex-1 shrink-0 whitespace-nowrap px-5 py-3.5 text-sm transition-colors ${
-                i > 0 ? "border-l border-foreground/15" : ""
-              } ${
+              className={`w-full rounded-xl px-6 py-5 text-center text-sm font-semibold no-underline transition-colors ${
                 active === t.id
                   ? "bg-accent text-accent-foreground"
                   : "bg-card text-foreground hover:bg-foreground/5"
@@ -97,7 +98,7 @@ export function Services() {
         </div>
       </Reveal>
 
-      <div className="w-full border border-foreground/15 bg-card p-6 md:p-10">
+      <div className="mt-6 w-full rounded-xl border border-foreground/15 bg-card p-8 md:p-12">
         <AnimatePresence mode="wait">
           <motion.div
             key={current.id}
@@ -105,13 +106,18 @@ export function Services() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16"
+            className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-16"
           >
             <div>
-              <p className="max-w-xl text-base leading-[1.6] text-foreground/70">{current.body}</p>
-              <ul className="mt-8 space-y-4">
+              <p className="max-w-xl text-base leading-[1.6] text-foreground/70">
+                {current.body}
+              </p>
+              <ul className="mt-10 space-y-5">
                 {current.bullets.map((b) => (
-                  <li key={b} className="flex items-start gap-3 text-sm text-foreground/85">
+                  <li
+                    key={b}
+                    className="flex items-start gap-3 text-sm text-foreground/85"
+                  >
                     <span className="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-accent text-accent-foreground">
                       <ArrowUpRight size={13} />
                     </span>
@@ -124,12 +130,11 @@ export function Services() {
               src={current.image}
               alt={current.alt}
               loading="lazy"
-              className="h-[300px] w-full object-cover md:h-[460px]"
+              className="h-[300px] w-full rounded-xl object-cover md:h-[460px]"
             />
           </motion.div>
         </AnimatePresence>
       </div>
-
     </section>
   );
 }
