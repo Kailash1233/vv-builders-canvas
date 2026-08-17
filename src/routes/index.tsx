@@ -40,16 +40,18 @@ function Index() {
       <Nav />
       <Hero />
 
-      <About />
-      <Marquee />
-      <Services />
-      <Projects />
-      <Process />
-      <Testimonials />
-      <Statement />
-      <Faq />
-      <Contact />
-      <Footer />
+      <div className="relative z-10 bg-background">
+        <About />
+        <Marquee />
+        <Services />
+        <Projects />
+        <Process />
+        <Testimonials />
+        <Statement />
+        <Faq />
+        <Contact />
+        <Footer />
+      </div>
       <Toaster />
     </main>
   );
