@@ -12,9 +12,9 @@ export function Hero() {
   const ease = [0.22, 1, 0.36, 1] as const;
 
   return (
-    <section ref={ref} id="top" className="relative">
-      <div className="grid grid-cols-1 md:min-h-screen md:grid-cols-[45fr_55fr]">
-        <div className="flex flex-col bg-background px-5 pt-6 pb-4 md:min-h-screen md:justify-between md:px-10 md:py-10">
+    <section ref={ref} id="top" className="sticky top-0 z-0">
+      <div className="grid grid-cols-1 md:min-h-[100dvh] md:grid-cols-[45fr_55fr]">
+        <div className="flex flex-col bg-background px-5 pt-6 pb-4 md:min-h-[100dvh] md:justify-between md:px-10 md:py-10">
           <a href="#top" className="text-lg font-extrabold tracking-tight text-foreground">
             VV Builders
           </a>
