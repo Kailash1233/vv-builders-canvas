@@ -60,7 +60,7 @@ export function Hero() {
 
         <motion.div
           style={{ scale, opacity }}
-          className="relative aspect-[4/3] origin-top md:aspect-auto md:min-h-screen"
+          className="relative aspect-[4/3] origin-top md:aspect-auto md:min-h-[100dvh]"
         >
           <motion.img
             src={heroImg}
