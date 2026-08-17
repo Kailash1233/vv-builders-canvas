@@ -69,7 +69,7 @@ export function Projects() {
                   className="aspect-[16/9] w-full object-cover md:aspect-[16/6]"
                 />
                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-foreground/60 to-transparent p-5 pt-20 md:p-10">
-                  <h3 className="text-[clamp(1.75rem,4vw,3.25rem)] font-extrabold uppercase leading-none tracking-[-0.03em] text-background">
+                  <h3 className="text-[clamp(1.75rem,4vw,3.25rem)] font-extrabold leading-none tracking-[-0.01em] text-background">
                     {p.title}
                   </h3>
                 </div>
