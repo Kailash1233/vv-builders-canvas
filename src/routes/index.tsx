@@ -23,11 +23,11 @@ export const Route = createFileRoute("/")({
         content:
           "VV Builders designs and builds kitchens, bathrooms, loft conversions and extensions across North and West London. Fixed programmes, one project lead, immaculate detailing.",
       },
-      { property: "og:title", content: "VV Builders — Built to Last, Designed to Impress" },
+      { property: "og:title", content: "VV Builders — Construction & Home Renovation in London" },
       {
         property: "og:description",
         content:
-          "Boutique construction and renovation studio crafting kitchens, lofts and extensions across London.",
+          "VV Builders designs and builds kitchens, bathrooms, loft conversions and extensions across North and West London. Fixed programmes, one project lead, immaculate detailing.",
       },
     ],
   }),
