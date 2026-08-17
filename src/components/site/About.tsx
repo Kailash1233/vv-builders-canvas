@@ -104,6 +104,7 @@ export function About() {
           </Reveal>
         ))}
       </div>
+      </div>
     </section>
   );
 }
