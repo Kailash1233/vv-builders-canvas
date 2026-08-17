@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
-import { Reveal, Eyebrow } from "./Reveal";
+import { Reveal } from "./Reveal";
 import kitchen from "@/assets/wide-kitchen.jpg";
 import bathroom from "@/assets/bathroom.jpg";
 import loft from "@/assets/loft.jpg";
@@ -72,7 +72,9 @@ export function Services() {
       className="mx-auto mt-24 max-w-[1400px] px-6 md:mt-36 md:px-12"
     >
       <Reveal className="text-center">
-        <Eyebrow className="font-bold">Services</Eyebrow>
+        <span className="inline-block text-[0.7rem] font-bold uppercase tracking-[0.22em] text-accent">
+          Services
+        </span>
       </Reveal>
       <Reveal delay={0.1}>
         <h2 className="mx-auto mt-6 max-w-3xl text-center text-[clamp(2rem,4vw,3.25rem)] font-extrabold leading-[1.08] tracking-[-0.01em]">
