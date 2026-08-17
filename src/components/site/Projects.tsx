@@ -82,7 +82,7 @@ export function Projects() {
                 <div
                   className={`h-full p-7 md:p-10 ${
                     p.panel === "accent"
-                      ? "bg-accent text-accent-foreground"
+                      ? "bg-[#7B2D3B] text-white"
                       : "bg-charcoal text-charcoal-foreground"
                   }`}
                 >
