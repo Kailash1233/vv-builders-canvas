@@ -44,7 +44,7 @@ export function Nav() {
               scrolled ? "bg-transparent" : "bg-black/25 backdrop-blur-sm"
             }`}
           >
-            {links.map((l) => (
+            {links.slice(0, 3).map((l) => (
               <a
                 key={l.href}
                 href={l.href}
