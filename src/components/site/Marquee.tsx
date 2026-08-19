@@ -1,24 +1,24 @@
-import bathroom from "@/assets/bathroom.jpg";
-import loft from "@/assets/loft.jpg";
-import extension from "@/assets/extension.jpg";
-import living from "@/assets/living.jpg";
-import stairs from "@/assets/stairs.jpg";
-import craft from "@/assets/craft.jpg";
-import wideKitchen from "@/assets/wide-kitchen.jpg";
+import exterior from "@/assets/vv-exterior.jpg";
+import villa from "@/assets/vv-villa.jpg";
+import courtyard from "@/assets/vv-courtyard.jpg";
+import renovation from "@/assets/vv-renovation.jpg";
+import verandah from "@/assets/vv-verandah.jpg";
+import kitchen from "@/assets/vv-kitchen.jpg";
+import structure from "@/assets/vv-structure.jpg";
 
 const images: { src: string; alt: string; w: string }[] = [
-  { src: bathroom, alt: "Minimal renovated bathroom", w: "w-[300px] md:w-[420px]" },
-  { src: loft, alt: "Loft conversion bedroom", w: "w-[240px] md:w-[320px]" },
-  { src: extension, alt: "Rear glass extension dining area", w: "w-[320px] md:w-[460px]" },
-  { src: living, alt: "Renovated living room", w: "w-[260px] md:w-[340px]" },
-  { src: stairs, alt: "Oak staircase renovation", w: "w-[240px] md:w-[300px]" },
-  { src: craft, alt: "Joinery being installed on site", w: "w-[300px] md:w-[400px]" },
-  { src: wideKitchen, alt: "Green kitchen with marble worktops", w: "w-[340px] md:w-[520px]" },
+  { src: exterior, alt: "Independent house exterior in Tambaram, Chennai", w: "w-[320px] md:w-[460px]" },
+  { src: courtyard, alt: "Internal courtyard with jaali screen in a Chennai home", w: "w-[240px] md:w-[320px]" },
+  { src: villa, alt: "Contemporary villa in Padappai at dusk", w: "w-[320px] md:w-[460px]" },
+  { src: renovation, alt: "Renovated living and dining space in a South Chennai house", w: "w-[300px] md:w-[420px]" },
+  { src: verandah, alt: "Shaded verandah with terracotta flooring", w: "w-[260px] md:w-[360px]" },
+  { src: kitchen, alt: "Kitchen with wood cabinetry and granite counters", w: "w-[300px] md:w-[420px]" },
+  { src: structure, alt: "RCC structural frame of a residential project under construction", w: "w-[280px] md:w-[400px]" },
 ];
 
 export function Marquee() {
   return (
-    <section className="overflow-hidden py-14 md:py-20">
+    <section className="overflow-hidden py-14 md:py-20" aria-label="Recent work">
       <div className="marquee-track flex w-max gap-3 md:gap-4">
         {[0, 1].map((dup) => (
           <div key={dup} className="flex gap-3 md:gap-4" aria-hidden={dup === 1}>

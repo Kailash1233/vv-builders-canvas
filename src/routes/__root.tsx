@@ -78,33 +78,46 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "VV Builders — Construction & Home Renovation in London" },
-      { name: "description", content: "VV Builders designs and builds kitchens, bathrooms, loft conversions and extensions across North and West London. Fixed programmes, one project lead, immaculate detailing." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "VV Builders — Construction & Home Renovation in London" },
-      { property: "og:description", content: "VV Builders designs and builds kitchens, bathrooms, loft conversions and extensions across North and West London. Fixed programmes, one project lead, immaculate detailing." },
+      { title: "V.V Builders | Builders & Construction Company in Tambaram, Chennai" },
+      {
+        name: "description",
+        content:
+          "V.V Builders is a builders and construction company in Padappai, Tambaram, Chennai — house construction, villas, renovation and extensions across South Chennai.",
+      },
+      { property: "og:site_name", content: "V.V Builders" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "VV Builders — Construction & Home Renovation in London" },
-      { name: "twitter:description", content: "VV Builders designs and builds kitchens, bathrooms, loft conversions and extensions across North and West London. Fixed programmes, one project lead, immaculate detailing." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2037778619965398fe7a4f262ffd9223/id-preview-5ccb87f1--91c53269-6dc9-4e07-a0b7-14174ede54a7.lovable.app-1786981639711.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/2037778619965398fe7a4f262ffd9223/id-preview-5ccb87f1--91c53269-6dc9-4e07-a0b7-14174ede54a7.lovable.app-1786981639711.png" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap",
       },
       {
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", type: "image/png", href: "/favicon.png" },
     ],
-
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "V.V Builders",
+          url: "https://vv-builders-canvas.lovable.app",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Padappai, Tambaram",
+            addressRegion: "Tamil Nadu",
+            addressCountry: "IN",
+          },
+        }),
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
