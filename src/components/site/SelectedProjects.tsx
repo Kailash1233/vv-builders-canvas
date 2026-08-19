@@ -5,8 +5,10 @@ import { projects } from "@/data/projects";
 import { ProjectCard } from "./ProjectCard";
 
 export function SelectedProjects() {
+  const [first, second] = projects;
+
   return (
-    <section id="projects" className="mx-auto mt-24 max-w-[1400px] px-5 md:mt-36 md:px-10">
+    <section id="projects" className="mx-auto mt-24 max-w-[1500px] px-5 md:mt-36 md:px-10">
       <Reveal>
         <Eyebrow>Selected projects</Eyebrow>
       </Reveal>
@@ -16,18 +18,23 @@ export function SelectedProjects() {
         </h2>
       </Reveal>
 
-      <div className="mt-14 grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-x-10 md:gap-y-24">
-        {projects.slice(0, 2).map((p, i) => (
-          <Reveal key={p.slug} delay={i * 0.08}>
-            <ProjectCard project={p} />
+      <div className="mt-16 grid grid-cols-1 gap-16 md:grid-cols-12 md:gap-x-10 md:gap-y-28">
+        {first && (
+          <Reveal className="md:col-span-7">
+            <ProjectCard project={first} index={0} priority />
           </Reveal>
-        ))}
+        )}
+        {second && (
+          <Reveal className="md:col-span-5 md:col-start-8 md:mt-28" delay={0.08}>
+            <ProjectCard project={second} index={1} ratio="3/4" />
+          </Reveal>
+        )}
       </div>
 
       <Reveal delay={0.1}>
         <Link
           to="/projects"
-          className="group mt-14 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.14em] text-navy"
+          className="group mt-16 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.14em] text-navy"
         >
           View all projects
           <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
