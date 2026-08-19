@@ -31,12 +31,13 @@ export function Nav() {
         <nav className="flex items-center justify-between px-5 py-5 md:px-10 md:py-8">
           <a
             href="#top"
-            className={`text-lg font-extrabold tracking-tight transition-opacity md:opacity-0 ${
-              scrolled ? "text-foreground md:opacity-100" : "text-foreground"
+            className={`text-lg font-extrabold tracking-tight text-foreground transition-opacity duration-300 ${
+              scrolled ? "opacity-100" : "pointer-events-none opacity-0"
             }`}
           >
             VV Builders
           </a>
+
 
           <div
             className={`hidden items-center gap-1 rounded-full p-1 transition-all duration-300 md:flex ${
