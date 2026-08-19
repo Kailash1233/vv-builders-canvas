@@ -44,7 +44,7 @@ export const Route = createFileRoute("/")({
             addressLocality: "Padappai, Tambaram",
             addressRegion: "Tamil Nadu",
             addressCountry: "IN",
-􀀀        },
+},
           areaServed: ["Tambaram", "Padappai", "South Chennai", "Chennai"],
         }),
       },
