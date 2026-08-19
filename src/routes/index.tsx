@@ -65,12 +65,16 @@ function Index() {
         <Hero />
         <div className="relative z-10 bg-background">
           <Intro />
+          <Stats />
           <Marquee />
           <ServicesTabs />
           <SelectedProjects />
           <WhyUs />
           <Process />
+          <Testimonials />
+          <Statement />
           <Locations />
+          <Faq />
           <FinalCTA />
           <Footer />
         </div>
