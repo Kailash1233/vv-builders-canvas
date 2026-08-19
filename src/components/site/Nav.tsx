@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
-import { X } from "lucide-react";
-
-const links = [
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
-];
+import { Link, useRouterState } from "@tanstack/react-router";
+import { X, Menu } from "lucide-react";
+import { navLinks } from "@/data/site";
+import { Logo } from "./Logo";
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isHome = pathname === "/";
+  const overlay = isHome && !scrolled;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -19,87 +18,71 @@ export function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => setOpen(false), [pathname]);
+
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? "border-b border-foreground/10 bg-background/85 backdrop-blur-md"
-            : "bg-transparent"
+        className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+          overlay ? "bg-transparent" : "border-b border-foreground/10 bg-background/85 backdrop-blur-md"
         }`}
       >
-        <nav className="flex items-center justify-between px-5 py-5 md:px-10 md:py-8">
-          <a
-            href="#top"
-            className={`text-lg font-extrabold tracking-tight text-foreground transition-opacity duration-300 ${
-              scrolled ? "opacity-100" : "pointer-events-none opacity-0"
-            }`}
-          >
-            VV Builders
-          </a>
+        <nav className="mx-auto flex max-w-[1600px] items-center justify-between gap-4 px-5 py-3 md:px-10 md:py-4">
+          <Logo className="h-8 md:h-10" />
 
-
-          <div
-            className={`hidden items-center gap-1 rounded-full p-1 transition-all duration-300 md:flex ${
-              scrolled ? "bg-transparent" : "bg-black/25 backdrop-blur-sm"
-            }`}
-          >
-            {links.slice(0, 3).map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-                  scrolled
-                    ? "text-foreground/70 hover:bg-foreground/5 hover:text-foreground"
-                    : "text-white/85 hover:bg-white/15 hover:text-white"
-                }`}
+          <div className="hidden items-center gap-1 rounded-full border border-foreground/10 bg-card/70 p-1 backdrop-blur-sm md:flex">
+            {navLinks.slice(0, 3).map((l) => (
+              <Link
+                key={l.to}
+                to={l.to}
+                activeProps={{ className: "bg-foreground/5 text-foreground" }}
+                className="rounded-full px-4 py-2 text-sm font-medium text-foreground/70 transition-colors hover:text-foreground"
               >
                 {l.label}
-              </a>
+              </Link>
             ))}
-            <a
-              href="#contact"
-              className={`ml-1 rounded-full px-5 py-2 text-sm font-semibold tracking-[0.06em] transition-colors ${
-                scrolled
-                  ? "bg-foreground text-background hover:bg-accent"
-                  : "bg-background text-foreground hover:bg-accent hover:text-accent-foreground"
-              }`}
+            <Link
+              to="/contact"
+              className="ml-1 rounded-full bg-navy px-5 py-2 text-sm font-semibold text-navy-foreground transition-colors hover:bg-foreground"
             >
               Contact
-            </a>
+            </Link>
           </div>
 
           <button
             type="button"
+            aria-label="Open menu"
             onClick={() => setOpen(true)}
-            className="text-sm font-semibold uppercase tracking-[0.14em] text-foreground md:hidden"
+            className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.14em] text-foreground md:hidden"
           >
-            Menu
+            <Menu size={18} /> Menu
           </button>
         </nav>
       </header>
 
-
       {open && (
-        <div className="fixed inset-0 z-[60] flex animate-fade-in flex-col bg-background px-5 py-5 md:hidden">
+        <div className="fixed inset-0 z-[60] flex animate-fade-in flex-col bg-background px-5 py-4 md:hidden">
           <div className="flex items-center justify-between">
-            <span className="text-lg font-extrabold tracking-tight">VV Builders</span>
+            <Logo className="h-8" />
             <button type="button" aria-label="Close menu" onClick={() => setOpen(false)}>
               <X size={24} />
             </button>
           </div>
-          <div className="mt-16 flex flex-col gap-6">
-            {links.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
+          <div className="mt-14 flex flex-col gap-6">
+            {navLinks.map((l) => (
+              <Link
+                key={l.to}
+                to={l.to}
                 onClick={() => setOpen(false)}
                 className="text-4xl font-extrabold uppercase tracking-[-0.03em]"
               >
                 {l.label}
-              </a>
+              </Link>
             ))}
           </div>
+          <p className="mt-auto text-xs uppercase tracking-[0.2em] text-foreground/50">
+            Padappai, Tambaram · Chennai
+          </p>
         </div>
       )}
     </>
