@@ -78,7 +78,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 1.05 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, ease }}
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover md:absolute md:inset-0"
           />
         </motion.div>
       </div>

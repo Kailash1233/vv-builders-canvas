@@ -9,7 +9,7 @@ export function Logo({ className = "h-9" }: { className?: string }) {
         alt="V.V Builders logo"
         width={320}
         height={180}
-        className={`${className} w-auto object-contain`}
+        className={`${className} w-auto object-contain mix-blend-multiply`}
       />
     </Link>
   );
