@@ -3,11 +3,15 @@ import { Toaster } from "@/components/ui/sonner";
 import { Nav } from "@/components/site/Nav";
 import { Hero } from "@/components/site/Hero";
 import { Intro } from "@/components/site/Intro";
+import { Stats } from "@/components/site/Stats";
 import { Marquee } from "@/components/site/Marquee";
 import { ServicesTabs } from "@/components/site/ServicesTabs";
 import { SelectedProjects } from "@/components/site/SelectedProjects";
 import { WhyUs } from "@/components/site/WhyUs";
 import { Process } from "@/components/site/Process";
+import { Testimonials } from "@/components/site/Testimonials";
+import { Statement } from "@/components/site/Statement";
+import { Faq } from "@/components/site/Faq";
 import { Locations } from "@/components/site/Locations";
 import { FinalCTA } from "@/components/site/FinalCTA";
 import { Footer } from "@/components/site/Footer";
@@ -61,12 +65,16 @@ function Index() {
         <Hero />
         <div className="relative z-10 bg-background">
           <Intro />
+          <Stats />
           <Marquee />
           <ServicesTabs />
           <SelectedProjects />
           <WhyUs />
           <Process />
+          <Testimonials />
+          <Statement />
           <Locations />
+          <Faq />
           <FinalCTA />
           <Footer />
         </div>
