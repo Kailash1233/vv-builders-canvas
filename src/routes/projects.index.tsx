@@ -37,13 +37,35 @@ function ProjectsPage() {
         intro="Independent houses, villas, renovations and extensions built in and around Tambaram. Each project page sets out the brief, the site constraints and how the work was executed."
       />
 
-      <section className="mx-auto max-w-[1400px] px-5 md:px-10">
-        <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-x-10 md:gap-y-24">
-          {projects.map((p, i) => (
-            <Reveal key={p.slug} delay={(i % 2) * 0.08}>
-              <ProjectCard project={p} priority={i === 0} />
-            </Reveal>
-          ))}
+      <section className="mx-auto max-w-[1500px] px-5 md:px-10">
+        <div className="flex flex-col gap-24 md:gap-40">
+          {projects.map((p, i) => {
+            const flip = i % 2 === 1;
+            return (
+              <Reveal key={p.slug}>
+                <div
+                  className={`grid grid-cols-1 items-start gap-y-2 md:grid-cols-12 ${
+                    flip ? "" : ""
+                  }`}
+                >
+                  <div
+                    className={
+                      flip
+                        ? "md:col-span-7 md:col-start-6"
+                        : "md:col-span-8 md:col-start-1"
+                    }
+                  >
+                    <ProjectCard
+                      project={p}
+                      index={i}
+                      priority={i === 0}
+                      ratio={flip ? "4/3" : "4/3"}
+                    />
+                  </div>
+                </div>
+              </Reveal>
+            );
+          })}
         </div>
       </section>
 
