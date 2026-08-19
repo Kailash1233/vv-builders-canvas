@@ -70,8 +70,12 @@
   --secondary-foreground: oklch(0.184 0 0);
   --muted: oklch(0.93 0.008 85);
   --muted-foreground: oklch(0.48 0.006 85);
-  --accent: oklch(0.348 0.037 155);
+  --accent: oklch(0.283 0.055 260);
   --accent-foreground: oklch(0.963 0.006 85);
+  --navy: oklch(0.283 0.055 260);
+  --navy-foreground: oklch(0.963 0.006 85);
+  --gold: oklch(0.78 0.115 82);
+  --gold-foreground: oklch(0.184 0 0);
   --charcoal: oklch(0.271 0.003 100);
   --charcoal-foreground: oklch(0.963 0.006 85);
   --ink: oklch(0.153 0 0);
