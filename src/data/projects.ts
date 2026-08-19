@@ -28,6 +28,7 @@ export interface Project {
   approach?: string;
   outcome?: string;
   highlights: string[];
+  materials?: { label: string; value: string }[];
   image: string;
   imageAlt: string;
   gallery: GalleryImage[];

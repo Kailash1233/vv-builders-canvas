@@ -3,6 +3,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowRight, Download, X } from "lucide-react";
 import { PageShell } from "@/components/site/PageShell";
 import { Reveal, Eyebrow } from "@/components/site/Reveal";
+import { ProjectCard } from "@/components/site/ProjectCard";
 import { getProject, projects } from "@/data/projects";
 import { SITE_URL } from "@/data/site";
 
@@ -237,23 +238,44 @@ function ProjectPage() {
           </section>
         )}
 
+        {p.materials && p.materials.length > 0 && (
+          <section className="mx-auto mt-24 max-w-[1400px] px-5 md:mt-36 md:px-10">
+            <h2 className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-navy">
+              Materials and details
+            </h2>
+            <dl className="mt-8 grid grid-cols-1 gap-x-10 sm:grid-cols-2">
+              {p.materials.map((m) => (
+                <div key={m.label} className="flex justify-between gap-6 border-b border-foreground/12 py-5">
+                  <dt className="text-[0.7rem] uppercase tracking-[0.2em] text-foreground/45">{m.label}</dt>
+                  <dd className="text-right text-sm text-foreground/80">{m.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+        )}
+
         <section className="mx-auto mt-24 max-w-[1400px] px-5 md:mt-36 md:px-10">
-          <div className="flex flex-wrap gap-x-10 gap-y-4 border-y border-foreground/12 py-8 text-sm font-semibold uppercase tracking-[0.14em]">
-            <Link to="/services" hash={p.relatedService.hash} className="text-navy underline-offset-8 hover:underline">
+          <div className="border-t border-foreground/12 pt-6">
+            <Link to="/services" hash={p.relatedService.hash} className="text-sm font-semibold uppercase tracking-[0.14em] text-navy underline-offset-8 hover:underline">
               Service: {p.relatedService.label}
             </Link>
-            {others.map((o) => (
-              <Link
-                key={o.slug}
-                to="/projects/$slug"
-                params={{ slug: o.slug }}
-                className="text-foreground/60 underline-offset-8 hover:underline"
-              >
-                {o.title}
-              </Link>
-            ))}
           </div>
         </section>
+
+        {others.length > 0 && (
+          <section className="mx-auto mt-20 max-w-[1500px] px-5 md:mt-28 md:px-10">
+            <h2 className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-navy">
+              Related projects
+            </h2>
+            <div className="mt-10 grid grid-cols-1 gap-14 md:grid-cols-2 md:gap-10">
+              {others.map((o, i) => (
+                <Reveal key={o.slug} delay={i * 0.08}>
+                  <ProjectCard project={o} />
+                </Reveal>
+              ))}
+            </div>
+          </section>
+        )}
 
         <section className="mt-24 bg-navy text-navy-foreground md:mt-36">
           <div className="mx-auto max-w-[1400px] px-5 py-20 md:px-10 md:py-28">
