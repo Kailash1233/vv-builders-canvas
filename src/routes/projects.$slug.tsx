@@ -3,6 +3,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowRight, Download, X } from "lucide-react";
 import { PageShell } from "@/components/site/PageShell";
 import { Reveal, Eyebrow } from "@/components/site/Reveal";
+import { ProjectCard } from "@/components/site/ProjectCard";
 import { getProject, projects } from "@/data/projects";
 import { SITE_URL } from "@/data/site";
 
